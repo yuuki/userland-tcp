@@ -1,0 +1,21 @@
+SERVER   = server
+CLIENT   = client
+TARGETS  = $(SERVER) $(CLIENT)
+SRC_DIR  = src
+SERVER_OBJ = $(SRC_DIR)/server.o
+CLIENT_OBJ = $(SRC_DIR)/client.o
+OBJS		 = $(SERVER_OBJ) $(CLIENT_OBJ)
+
+all: $(TARGETS)
+
+$(SERVER): $(SERVER_OBJ)
+	$(CXX) $(LDFLAGS) -o $@ $(SERVER_OBJ) $(LIBS)
+
+$(CLIENT): $(CLIENT_OBJ)
+	$(CXX) $(LDFLAGS) -o $@ $(CLIENT_OBJ) $(LIBS)
+
+.cpp.o:
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
+
+clean:
+	$(RM) $(TARGETS) $(OBJS)

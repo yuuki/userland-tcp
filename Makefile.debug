@@ -1,0 +1,7 @@
+CXX 		 = clang++
+CXXFLAGS = -O0 -g -Wall -Wextra -std=c++0x -DENABLE_LOG
+LDFLAGS  = -L/usr/local/lib -L/usr/local/opt/boost
+INCLUDES = -Iinclude -I/usr/local/include -I/usr/local/include/boost -I/usr/local/opt/boost/include
+LIBS 		 = -lboost_program_options-mt -lboost_system-mt
+
+include ./Makefile.common
